@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 // const Header = (props) => {
 //   return (
 //     <div>
-//       <h1>{props.name}</h1>
+//       <h1>{props.course}</h1>
 //     </div>
 //   )
 // }
@@ -30,7 +30,7 @@ import ReactDOM from 'react-dom'
 // const Total = (props) => {
 //   return (
 //     <div>
-//       <p>Number of exercises {props.sum}</p>
+//       <p>Number of exercises {props.exercises}</p>
 //     </div>
 //   )
 // }
@@ -45,30 +45,29 @@ import ReactDOM from 'react-dom'
 //   )
 // }
 
-const App = () => {
-  const course = 'Half Stack application development'
-  const parts = [
-    {
-      name: 'Fundamentals of React',
-      exercises: 10
-    },
-    {
-      name: 'Using props to pass data',
-      exercises: 7
-    },
-    {
-      name: 'State of a component',
-      exercises: 14
-    }
-  ]
+const Hello = ({name, age}) => {
+  const bornYear = () => new Date().getFullYear() - age
 
   return (
     <div>
-      <h1>{course}</h1>
-      <h3>{parts[0].name}</h3>
-      <h3>{parts[1].name}</h3>
-      <h3>{parts[2].name}</h3>
-      <h4>Total: {parts[0].exercises + parts[1].exercises + parts[2].exercises}</h4>
+      <p>
+        Hello {name}, you are {age} years old
+      </p>
+
+      <p>So you were probably born in {bornYear()}</p>
+    </div>
+  )
+}
+
+const App = () => {
+  const name = 'Peter'
+  const age = 10
+
+  return (
+    <div>
+      <h1>Greetings</h1>
+      <Hello name="Maya" age={26 + 10} />
+      <Hello name={name} age={age} />
     </div>
   )
 }
